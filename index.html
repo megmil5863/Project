@@ -147,6 +147,7 @@
             <form id="contact-form">
 
                 <label for="name">Name:</label>
+
                 <input
                     type="text"
                     id="name"
@@ -156,6 +157,7 @@
 
 
                 <label for="email">Email:</label>
+
                 <input
                     type="email"
                     id="email"
@@ -165,7 +167,160 @@
 
 
                 <label for="message">Message:</label>
+
                 <textarea
                     id="message"
                     name="message"
                     rows="5"
+                    required
+                ></textarea>
+
+
+                <button type="submit">Send Message</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>&copy; 2026 Megan Miller. All rights reserved.</p>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        // ==========================================
+        // 1. Dynamically add a new skill
+        // ==========================================
+
+        // Select the skills list
+        const skillsList = document.getElementById("skills-list");
+
+        // Skills to add dynamically
+        const skills = [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Web Development"
+        ];
+
+        // Add each skill to the list
+        skills.forEach(function(skill) {
+
+            const skillItem = document.createElement("li");
+
+            skillItem.textContent = skill;
+
+            skillsList.appendChild(skillItem);
+
+        });
+
+
+        // ==========================================
+        // 2. Dynamically add a new project message
+        // ==========================================
+
+        // Select the Projects section
+        const projectsSection = document.getElementById("projects");
+
+        // Create a new paragraph
+        const newProjectMessage = document.createElement("p");
+
+        // Add text to the paragraph
+        newProjectMessage.textContent =
+            "I am continuing to build my web development skills by creating projects with HTML, CSS, and JavaScript.";
+
+        // Give the paragraph a class
+        newProjectMessage.classList.add("dynamic-message");
+
+        // Add the paragraph to the Projects section
+        projectsSection.appendChild(newProjectMessage);
+
+
+        // ==========================================
+        // 3. Reference and modify existing elements
+        // ==========================================
+
+        // Select the About Me heading using querySelector()
+        const aboutHeading = document.querySelector("#about h2");
+
+        // Change the heading text
+        aboutHeading.textContent = "About Megan";
+
+        // Change the heading color
+        aboutHeading.style.color = "#4a6fa5";
+
+
+        // Select the Featured Content section using getElementById()
+        const featuredSection =
+            document.getElementById("featured-content");
+
+        // Add a border to the section
+        featuredSection.style.border = "2px solid #4a6fa5";
+
+
+        // ==========================================
+        // 4. Timed confirmation for form submission
+        // ==========================================
+
+        // Select the contact form
+        const contactForm = document.getElementById("contact-form");
+
+        // Listen for form submission
+        contactForm.addEventListener("submit", function(event) {
+
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Check if an old status message already exists
+            const oldStatus =
+                document.getElementById("form-status");
+
+            if (oldStatus) {
+                oldStatus.remove();
+            }
+
+            // Create a loading message
+            const loadingMessage =
+                document.createElement("p");
+
+            // Give the message an ID
+            loadingMessage.id = "form-status";
+
+            // Display the loading text
+            loadingMessage.textContent =
+                "Sending message...";
+
+            // Style the loading message
+            loadingMessage.style.color = "#4a6fa5";
+            loadingMessage.style.fontWeight = "bold";
+
+            // Add the message to the form
+            contactForm.appendChild(loadingMessage);
+
+
+            // Wait 3 seconds
+            setTimeout(function() {
+
+                // Replace loading message with confirmation
+                loadingMessage.textContent =
+                    "Message sent successfully!";
+
+                // Change the confirmation color
+                loadingMessage.style.color = "green";
+
+                // Clear the form
+                contactForm.reset();
+
+            }, 3000);
+
+        });
+
+    </script>
+
+</body>
+</html>
