@@ -26,11 +26,201 @@ skills.forEach(function(skill) {
 
 
 /* =========================
+   Custom Project Objects
+   ========================= */
+
+const projectOne = {
+    title: "Portfolio Website",
+    summary: "A personal portfolio website created to showcase my skills, coursework, and web development projects.",
+    image: "images/github-project.png",
+    repository: "https://github.com/megmil5863/Project/tree/main"
+};
+
+
+const projectTwo = {
+    title: "Interactive JavaScript Project",
+    summary: "An interactive web project created to practice JavaScript, DOM manipulation, and event handling.",
+    image: "images/github-project.png",
+    repository: "https://github.com/megmil5863/Project/tree/main"
+};
+
+
+const projectThree = {
+    title: "HTML and CSS Practice Project",
+    summary: "A web development project created to practice HTML structure, CSS styling, page layout, and responsive design.",
+    image: "images/github-project.png",
+    repository: "https://github.com/megmil5863/Project/tree/main"
+};
+
+
+/* =========================
+   Project Array
+   ========================= */
+
+const projectArray = [
+    projectOne,
+    projectTwo,
+    projectThree
+];
+
+
+/* =========================
+   Session Storage
+   Store and Parse Projects
+   ========================= */
+
+const storedProjects =
+    sessionStorage.getItem("projects");
+
+let projects;
+
+
+if (storedProjects === null) {
+
+    /* Convert the project array to a string */
+
+    const projectString =
+        JSON.stringify(projectArray);
+
+
+    /* Store the project string */
+
+    sessionStorage.setItem(
+        "projects",
+        projectString
+    );
+
+
+    /* Use the original project array */
+
+    projects = projectArray;
+
+} else {
+
+    /* Retrieve and parse the stored projects */
+
+    projects =
+        JSON.parse(storedProjects);
+
+}
+
+
+/* =========================
+   Render Projects Dynamically
+   ========================= */
+
+const projectsSection =
+    document.querySelector("#projects");
+
+const projectsContainer =
+    document.querySelector("#projects-container");
+
+
+projects.forEach(function(project) {
+
+    /* Create the project container */
+
+    const projectElement =
+        document.createElement("div");
+
+    projectElement.classList.add("project");
+
+
+    /* Create project title */
+
+    const projectTitle =
+        document.createElement("h3");
+
+    projectTitle.textContent =
+        project.title;
+
+
+    /* Create project summary */
+
+    const projectSummary =
+        document.createElement("p");
+
+    projectSummary.textContent =
+        project.summary;
+
+
+    /* Create project image */
+
+    const projectImage =
+        document.createElement("img");
+
+    projectImage.src =
+        project.image;
+
+    projectImage.alt =
+        project.title;
+
+
+    /* Create repository paragraph */
+
+    const repositoryParagraph =
+        document.createElement("p");
+
+
+    /* Create repository link */
+
+    const repositoryLink =
+        document.createElement("a");
+
+    repositoryLink.href =
+        project.repository;
+
+    repositoryLink.textContent =
+        "View Project on GitHub";
+
+    repositoryLink.target =
+        "_blank";
+
+    repositoryLink.rel =
+        "noopener noreferrer";
+
+
+    /* Add link to paragraph */
+
+    repositoryParagraph.appendChild(
+        repositoryLink
+    );
+
+
+    /* Add project information */
+
+    projectElement.appendChild(
+        projectTitle
+    );
+
+    projectElement.appendChild(
+        projectSummary
+    );
+
+    projectElement.appendChild(
+        projectImage
+    );
+
+    projectElement.appendChild(
+        repositoryParagraph
+    );
+
+
+    /* Add project to the page */
+
+    projectsContainer.appendChild(
+        projectElement
+    );
+
+});
+
+
+/* =========================
    Featured Content
    Conditional Logic
    ========================= */
 
-const projects =
+const projectElements =
     document.querySelectorAll(".project");
 
 const universityResources =
@@ -40,7 +230,7 @@ const personalProjects =
     document.querySelector("#personal-projects");
 
 
-if (projects.length < 3) {
+if (projectElements.length < 3) {
 
     universityResources.style.display = "block";
     personalProjects.style.display = "block";
@@ -148,7 +338,9 @@ contactForm.addEventListener("submit", function(event) {
         document.querySelector("#form-status");
 
     if (oldStatus) {
+
         oldStatus.remove();
+
     }
 
 
@@ -157,7 +349,8 @@ contactForm.addEventListener("submit", function(event) {
     const statusMessage =
         document.createElement("p");
 
-    statusMessage.id = "form-status";
+    statusMessage.id =
+        "form-status";
 
     statusMessage.textContent =
         "Sending message...";
@@ -169,7 +362,9 @@ contactForm.addEventListener("submit", function(event) {
         "bold";
 
 
-    contactForm.appendChild(statusMessage);
+    contactForm.appendChild(
+        statusMessage
+    );
 
 
     /* Show confirmation after 3 seconds */
