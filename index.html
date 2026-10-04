@@ -3,17 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Megan Miller - Portfolio</title>
-
     <link rel="stylesheet" href="style.css">
 
-    <!-- Additional CSS for this assignment -->
     <style>
-        /* ==========================================
-           Welcome Modal
-           ========================================== */
-
         .modal {
             display: flex;
             position: fixed;
@@ -56,11 +49,6 @@
             background-color: #365580;
         }
 
-
-        /* ==========================================
-           Submit Button Tooltip
-           ========================================== */
-
         .tooltip-container {
             position: relative;
             display: inline-block;
@@ -69,21 +57,15 @@
         .tooltip-text {
             visibility: hidden;
             opacity: 0;
-
             position: absolute;
             bottom: 125%;
             left: 50%;
-
             transform: translateX(-50%);
-
             background-color: #333;
             color: white;
-
             padding: 8px 12px;
             border-radius: 5px;
-
             white-space: nowrap;
-
             transition: opacity 0.3s;
         }
 
@@ -91,11 +73,6 @@
             visibility: visible;
             opacity: 1;
         }
-
-
-        /* ==========================================
-           Dark Mode
-           ========================================== */
 
         body.dark-mode {
             background-color: #121212;
@@ -140,85 +117,60 @@
             background-color: white;
             color: #222;
         }
+
+        .project {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .project img {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .project a {
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- ==========================================
-         Welcome Modal
-         ========================================== -->
-
     <div id="welcome-modal" class="modal">
         <div class="modal-content">
             <h2>Welcome!</h2>
-
-            <p>
-                This page is a work in progress.
-            </p>
-
-            <button id="close-modal" type="button">
-                Close
-            </button>
+            <p>This page is a work in progress.</p>
+            <button id="close-modal" type="button">Close</button>
         </div>
     </div>
 
-
-    <!-- ==========================================
-         Header
-         ========================================== -->
-
     <header>
-
         <div class="header-content">
-
             <h1>Megan Miller</h1>
-
             <p>Student ID: MEGMIL5863</p>
 
             <label for="dark-mode-toggle" class="dark-mode-label">
                 Dark Mode
-
-                <input
-                    type="checkbox"
-                    id="dark-mode-toggle"
-                >
+                <input type="checkbox" id="dark-mode-toggle">
             </label>
-
         </div>
 
-
         <nav>
-
             <a href="#about">About</a>
-
-            <a href="#featured-content">
-                Featured Content
-            </a>
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
+            <a href="#featured-content">Featured Content</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </nav>
-
     </header>
-
-
-    <!-- ==========================================
-         Main Content
-         ========================================== -->
 
     <main>
 
-        <!-- About Section -->
-
         <section id="about">
-
             <h2>About Me</h2>
 
             <p>
@@ -230,35 +182,22 @@
 
             <h3>My Skills</h3>
 
-            <ul id="skills-list">
-                <!-- JavaScript will add skills here -->
-            </ul>
-
+            <ul id="skills-list"></ul>
         </section>
-
-
-        <!-- Featured Content Section -->
 
         <section id="featured-content">
 
             <h2>Featured Content</h2>
 
-
             <div id="university-resources" class="resource-box">
-
                 <h3>University Resources</h3>
 
                 <p>
-                    <a
-                        href="https://www.ecpi.edu/"
-                        target="_blank"
-                    >
+                    <a href="https://www.ecpi.edu/" target="_blank" rel="noopener noreferrer">
                         ECPI University Program Home Page
                     </a>
                 </p>
-
             </div>
-
 
             <div id="personal-projects" class="resource-box">
 
@@ -269,98 +208,46 @@
                 </p>
 
                 <div class="project-images">
-
                     <a
                         href="https://github.com/megmil5863/Project/tree/main"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <img
                             src="images/github-project.png"
                             alt="Megan Miller GitHub Project"
                         >
                     </a>
-
                 </div>
 
                 <p>
                     <a
                         href="https://github.com/megmil5863/Project/tree/main"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         View Megan's Project on GitHub
                     </a>
                 </p>
-
             </div>
-
         </section>
-
-
-        <!-- Projects Section -->
 
         <section id="projects">
 
             <h2>My Projects</h2>
 
-
-            <div class="project">
-
-                <h3>Project One</h3>
-
-                <p>
-                    This is one of my web development projects. I created
-                    this project to practice HTML and CSS.
-                </p>
-
-                <p>
-                    <a
-                        href="https://github.com/megmil5863/Project/tree/main"
-                        target="_blank"
-                    >
-                        View Project on GitHub
-                    </a>
-                </p>
-
-            </div>
-
-
-            <div class="project">
-
-                <h3>Project Two</h3>
-
-                <p>
-                    This project allowed me to practice creating interactive
-                    web pages using JavaScript.
-                </p>
-
-                <p>
-                    <a
-                        href="https://github.com/megmil5863/Project/tree/main"
-                        target="_blank"
-                    >
-                        View Project on GitHub
-                    </a>
-                </p>
-
-            </div>
+            <!-- JavaScript will dynamically create the projects here -->
+            <div id="projects-container"></div>
 
         </section>
-
-
-        <!-- ==========================================
-             Contact Section
-             ========================================== -->
 
         <section id="contact">
 
             <h2>Contact Me</h2>
 
-
             <form id="contact-form">
 
-                <label for="name">
-                    Name:
-                </label>
+                <label for="name">Name:</label>
 
                 <input
                     type="text"
@@ -369,10 +256,7 @@
                     required
                 >
 
-
-                <label for="email">
-                    Email:
-                </label>
+                <label for="email">Email:</label>
 
                 <input
                     type="email"
@@ -381,10 +265,7 @@
                     required
                 >
 
-
-                <label for="message">
-                    Message:
-                </label>
+                <label for="message">Message:</label>
 
                 <textarea
                     id="message"
@@ -392,9 +273,6 @@
                     rows="5"
                     required
                 ></textarea>
-
-
-                <!-- Submit Button with Tooltip -->
 
                 <div class="tooltip-container">
 
@@ -409,37 +287,23 @@
                 </div>
 
             </form>
-
         </section>
 
     </main>
 
-
-    <!-- ==========================================
-         Footer
-         ========================================== -->
-
     <footer>
-
         <p>
             &copy; 2026 Megan Miller. All rights reserved.
         </p>
-
     </footer>
-
-
-    <!-- ==========================================
-         JavaScript
-         ========================================== -->
 
     <script>
 
         // ==========================================
-        // 1. Dynamically add skills
+        // 1. Dynamically Add Skills
         // ==========================================
 
-        const skillsList =
-            document.getElementById("skills-list");
+        const skillsList = document.getElementById("skills-list");
 
         const skills = [
             "HTML",
@@ -450,8 +314,7 @@
 
         skills.forEach(function(skill) {
 
-            const skillItem =
-                document.createElement("li");
+            const skillItem = document.createElement("li");
 
             skillItem.textContent = skill;
 
@@ -461,39 +324,174 @@
 
 
         // ==========================================
-        // 2. Dynamically add a project message
+        // 2. Create Three Custom Project Objects
         // ==========================================
 
-        const projectsSection =
-            document.getElementById("projects");
+        const projectOne = {
+            title: "Portfolio Website",
+            summary: "A personal portfolio website created to showcase my skills, coursework, and web development projects.",
+            image: "images/github-project.png",
+            repository: "https://github.com/megmil5863/Project/tree/main"
+        };
 
-        const newProjectMessage =
-            document.createElement("p");
+        const projectTwo = {
+            title: "Interactive JavaScript Project",
+            summary: "An interactive web project created to practice JavaScript, DOM manipulation, and event handling.",
+            image: "images/github-project.png",
+            repository: "https://github.com/megmil5863/Project/tree/main"
+        };
+
+        const projectThree = {
+            title: "HTML and CSS Practice Project",
+            summary: "A web development project created to practice HTML structure, CSS styling, page layout, and responsive design.",
+            image: "images/github-project.png",
+            repository: "https://github.com/megmil5863/Project/tree/main"
+        };
+
+
+        // ==========================================
+        // 3. Create an Array Containing the Projects
+        // ==========================================
+
+        const projectArray = [
+            projectOne,
+            projectTwo,
+            projectThree
+        ];
+
+
+        // ==========================================
+        // 4. Store and Parse Information
+        //    Using sessionStorage
+        // ==========================================
+
+        const storedProjects = sessionStorage.getItem("projects");
+
+        let projects;
+
+        if (storedProjects === null) {
+
+            // Convert the project array to a string
+            const projectString = JSON.stringify(projectArray);
+
+            // Store the string in sessionStorage
+            sessionStorage.setItem("projects", projectString);
+
+            // Use the original project array
+            projects = projectArray;
+
+        } else {
+
+            // Retrieve and parse the stored project data
+            projects = JSON.parse(storedProjects);
+
+        }
+
+
+        // ==========================================
+        // 5. Select the Project Section
+        // ==========================================
+
+        const projectsSection = document.querySelector("#projects");
+
+        const projectsContainer =
+            document.querySelector("#projects-container");
+
+
+        // ==========================================
+        // 6. Render Projects Dynamically
+        // ==========================================
+
+        projects.forEach(function(project) {
+
+            // Create the project container
+            const projectElement = document.createElement("div");
+
+            projectElement.classList.add("project");
+
+
+            // Create the project title
+            const projectTitle = document.createElement("h3");
+
+            projectTitle.textContent = project.title;
+
+
+            // Create the project summary
+            const projectSummary = document.createElement("p");
+
+            projectSummary.textContent = project.summary;
+
+
+            // Create the project image
+            const projectImage = document.createElement("img");
+
+            projectImage.src = project.image;
+
+            projectImage.alt = project.title;
+
+
+            // Create the repository paragraph
+            const repositoryParagraph = document.createElement("p");
+
+
+            // Create the repository link
+            const repositoryLink = document.createElement("a");
+
+            repositoryLink.href = project.repository;
+
+            repositoryLink.textContent = "View Project on GitHub";
+
+            repositoryLink.target = "_blank";
+
+            repositoryLink.rel = "noopener noreferrer";
+
+
+            // Put the link inside the paragraph
+            repositoryParagraph.appendChild(repositoryLink);
+
+
+            // Add all project information
+            // to the project container
+            projectElement.appendChild(projectTitle);
+
+            projectElement.appendChild(projectSummary);
+
+            projectElement.appendChild(projectImage);
+
+            projectElement.appendChild(repositoryParagraph);
+
+
+            // Add the completed project
+            // to the projects section
+            projectsContainer.appendChild(projectElement);
+
+        });
+
+
+        // ==========================================
+        // 7. Add Dynamic Project Message
+        // ==========================================
+
+        const newProjectMessage = document.createElement("p");
 
         newProjectMessage.textContent =
             "I am continuing to build my web development skills by creating projects with HTML, CSS, and JavaScript.";
 
-        newProjectMessage.classList.add(
-            "dynamic-message"
-        );
+        newProjectMessage.classList.add("dynamic-message");
 
-        projectsSection.appendChild(
-            newProjectMessage
-        );
+        projectsSection.appendChild(newProjectMessage);
 
 
         // ==========================================
-        // 3. Reference and modify existing elements
+        // 8. Modify Existing Elements
         // ==========================================
 
         const aboutHeading =
             document.querySelector("#about h2");
 
-        aboutHeading.textContent =
-            "About Megan";
+        aboutHeading.textContent = "About Megan";
 
-        aboutHeading.style.color =
-            "#4a6fa5";
+        aboutHeading.style.color = "#4a6fa5";
 
 
         const featuredSection =
@@ -504,7 +502,7 @@
 
 
         // ==========================================
-        // 4. Welcome Modal
+        // 9. Welcome Modal
         // ==========================================
 
         const welcomeModal =
@@ -513,175 +511,113 @@
         const closeModal =
             document.getElementById("close-modal");
 
+        closeModal.addEventListener("click", function() {
 
-        // Close the modal when the Close button is clicked
+            welcomeModal.style.display = "none";
 
-        closeModal.addEventListener(
-            "click",
-            function() {
-
-                welcomeModal.style.display =
-                    "none";
-
-            }
-        );
+        });
 
 
         // ==========================================
-        // 5. Persistent Dark Mode
+        // 10. Persistent Dark Mode
         // ==========================================
 
         const darkModeToggle =
             document.getElementById("dark-mode-toggle");
 
-
-        // Check localStorage for a saved preference
-
         const savedDarkMode =
             localStorage.getItem("darkMode");
 
-
-        // Apply saved Dark Mode preference
-
         if (savedDarkMode === "enabled") {
 
-            document.body.classList.add(
-                "dark-mode"
-            );
+            document.body.classList.add("dark-mode");
 
             darkModeToggle.checked = true;
 
         } else {
 
-            document.body.classList.remove(
-                "dark-mode"
-            );
+            document.body.classList.remove("dark-mode");
 
             darkModeToggle.checked = false;
 
         }
 
 
-        // Save Dark Mode preference when the
-        // user changes the checkbox
+        darkModeToggle.addEventListener("change", function() {
 
-        darkModeToggle.addEventListener(
-            "change",
-            function() {
+            if (darkModeToggle.checked) {
 
-                if (darkModeToggle.checked) {
+                document.body.classList.add("dark-mode");
 
-                    document.body.classList.add(
-                        "dark-mode"
-                    );
+                localStorage.setItem(
+                    "darkMode",
+                    "enabled"
+                );
 
-                    localStorage.setItem(
-                        "darkMode",
-                        "enabled"
-                    );
+            } else {
 
-                } else {
+                document.body.classList.remove("dark-mode");
 
-                    document.body.classList.remove(
-                        "dark-mode"
-                    );
-
-                    localStorage.setItem(
-                        "darkMode",
-                        "disabled"
-                    );
-
-                }
+                localStorage.setItem(
+                    "darkMode",
+                    "disabled"
+                );
 
             }
-        );
+
+        });
 
 
         // ==========================================
-        // 6. Timed confirmation for form submission
+        // 11. Contact Form
         // ==========================================
 
         const contactForm =
             document.getElementById("contact-form");
 
+        contactForm.addEventListener("submit", function(event) {
 
-        contactForm.addEventListener(
-            "submit",
-            function(event) {
-
-                // Prevent the default form submission
-
-                event.preventDefault();
+            event.preventDefault();
 
 
-                // Check if an old status message exists
+            const oldStatus =
+                document.getElementById("form-status");
 
-                const oldStatus =
-                    document.getElementById(
-                        "form-status"
-                    );
-
-
-                if (oldStatus) {
-
-                    oldStatus.remove();
-
-                }
+            if (oldStatus) {
+                oldStatus.remove();
+            }
 
 
-                // Create a loading message
+            const loadingMessage =
+                document.createElement("p");
 
-                const loadingMessage =
-                    document.createElement("p");
+            loadingMessage.id = "form-status";
+
+            loadingMessage.textContent =
+                "Sending message...";
+
+            loadingMessage.style.color =
+                "#4a6fa5";
+
+            loadingMessage.style.fontWeight =
+                "bold";
+
+            contactForm.appendChild(loadingMessage);
 
 
-                loadingMessage.id =
-                    "form-status";
-
+            setTimeout(function() {
 
                 loadingMessage.textContent =
-                    "Sending message...";
-
+                    "Message sent successfully!";
 
                 loadingMessage.style.color =
-                    "#4a6fa5";
+                    "green";
 
+                contactForm.reset();
 
-                loadingMessage.style.fontWeight =
-                    "bold";
+            }, 3000);
 
-
-                contactForm.appendChild(
-                    loadingMessage
-                );
-
-
-                // Wait 3 seconds
-
-                setTimeout(
-                    function() {
-
-                        // Replace loading message
-                        // with confirmation
-
-                        loadingMessage.textContent =
-                            "Message sent successfully!";
-
-
-                        loadingMessage.style.color =
-                            "green";
-
-
-                        // Clear the form
-
-                        contactForm.reset();
-
-                    },
-                    3000
-                );
-
-            }
-        );
+        });
 
     </script>
 
