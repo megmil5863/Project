@@ -7,34 +7,218 @@
     <title>Megan Miller - Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Additional CSS for this assignment -->
+    <style>
+        /* ==========================================
+           Welcome Modal
+           ========================================== */
+
+        .modal {
+            display: flex;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+        }
+
+        .modal-content button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4a6fa5;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-content button:hover {
+            background-color: #365580;
+        }
+
+
+        /* ==========================================
+           Submit Button Tooltip
+           ========================================== */
+
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            opacity: 0;
+
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background-color: #333;
+            color: white;
+
+            padding: 8px 12px;
+            border-radius: 5px;
+
+            white-space: nowrap;
+
+            transition: opacity 0.3s;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+
+        /* ==========================================
+           Dark Mode
+           ========================================== */
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer {
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode section,
+        body.dark-mode .project,
+        body.dark-mode .resource-box {
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode a {
+            color: #90caf9;
+        }
+
+        body.dark-mode input,
+        body.dark-mode textarea {
+            background-color: #333;
+            color: white;
+            border: 1px solid #777;
+        }
+
+        body.dark-mode button {
+            background-color: #4a6fa5;
+            color: white;
+        }
+
+        body.dark-mode .modal-content {
+            background-color: #222;
+            color: white;
+        }
+
+        body.dark-mode .tooltip-text {
+            background-color: white;
+            color: #222;
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- ==========================================
+         Welcome Modal
+         ========================================== -->
+
+    <div id="welcome-modal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome!</h2>
+
+            <p>
+                This page is a work in progress.
+            </p>
+
+            <button id="close-modal" type="button">
+                Close
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ==========================================
+         Header
+         ========================================== -->
+
     <header>
+
         <div class="header-content">
+
             <h1>Megan Miller</h1>
+
             <p>Student ID: MEGMIL5863</p>
 
             <label for="dark-mode-toggle" class="dark-mode-label">
                 Dark Mode
-                <input type="checkbox" id="dark-mode-toggle">
+
+                <input
+                    type="checkbox"
+                    id="dark-mode-toggle"
+                >
             </label>
+
         </div>
 
+
         <nav>
+
             <a href="#about">About</a>
-            <a href="#featured-content">Featured Content</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+
+            <a href="#featured-content">
+                Featured Content
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
         </nav>
+
     </header>
 
+
+    <!-- ==========================================
+         Main Content
+         ========================================== -->
 
     <main>
 
         <!-- About Section -->
+
         <section id="about">
+
             <h2>About Me</h2>
 
             <p>
@@ -49,26 +233,35 @@
             <ul id="skills-list">
                 <!-- JavaScript will add skills here -->
             </ul>
+
         </section>
 
 
         <!-- Featured Content Section -->
+
         <section id="featured-content">
 
             <h2>Featured Content</h2>
 
+
             <div id="university-resources" class="resource-box">
+
                 <h3>University Resources</h3>
 
                 <p>
-                    <a href="https://www.ecpi.edu/" target="_blank">
+                    <a
+                        href="https://www.ecpi.edu/"
+                        target="_blank"
+                    >
                         ECPI University Program Home Page
                     </a>
                 </p>
+
             </div>
 
 
             <div id="personal-projects" class="resource-box">
+
                 <h3>Personal Projects</h3>
 
                 <p>
@@ -77,8 +270,10 @@
 
                 <div class="project-images">
 
-                    <a href="https://github.com/megmil5863/Project/tree/main"
-                       target="_blank">
+                    <a
+                        href="https://github.com/megmil5863/Project/tree/main"
+                        target="_blank"
+                    >
                         <img
                             src="images/github-project.png"
                             alt="Megan Miller GitHub Project"
@@ -88,22 +283,28 @@
                 </div>
 
                 <p>
-                    <a href="https://github.com/megmil5863/Project/tree/main"
-                       target="_blank">
+                    <a
+                        href="https://github.com/megmil5863/Project/tree/main"
+                        target="_blank"
+                    >
                         View Megan's Project on GitHub
                     </a>
                 </p>
+
             </div>
 
         </section>
 
 
         <!-- Projects Section -->
+
         <section id="projects">
 
             <h2>My Projects</h2>
 
+
             <div class="project">
+
                 <h3>Project One</h3>
 
                 <p>
@@ -112,15 +313,19 @@
                 </p>
 
                 <p>
-                    <a href="https://github.com/megmil5863/Project/tree/main"
-                       target="_blank">
+                    <a
+                        href="https://github.com/megmil5863/Project/tree/main"
+                        target="_blank"
+                    >
                         View Project on GitHub
                     </a>
                 </p>
+
             </div>
 
 
             <div class="project">
+
                 <h3>Project Two</h3>
 
                 <p>
@@ -129,24 +334,33 @@
                 </p>
 
                 <p>
-                    <a href="https://github.com/megmil5863/Project/tree/main"
-                       target="_blank">
+                    <a
+                        href="https://github.com/megmil5863/Project/tree/main"
+                        target="_blank"
+                    >
                         View Project on GitHub
                     </a>
                 </p>
+
             </div>
 
         </section>
 
 
-        <!-- Contact Section -->
+        <!-- ==========================================
+             Contact Section
+             ========================================== -->
+
         <section id="contact">
 
             <h2>Contact Me</h2>
 
+
             <form id="contact-form">
 
-                <label for="name">Name:</label>
+                <label for="name">
+                    Name:
+                </label>
 
                 <input
                     type="text"
@@ -156,7 +370,9 @@
                 >
 
 
-                <label for="email">Email:</label>
+                <label for="email">
+                    Email:
+                </label>
 
                 <input
                     type="email"
@@ -166,7 +382,9 @@
                 >
 
 
-                <label for="message">Message:</label>
+                <label for="message">
+                    Message:
+                </label>
 
                 <textarea
                     id="message"
@@ -176,7 +394,19 @@
                 ></textarea>
 
 
-                <button type="submit">Send Message</button>
+                <!-- Submit Button with Tooltip -->
+
+                <div class="tooltip-container">
+
+                    <button type="submit">
+                        Send Message
+                    </button>
+
+                    <span class="tooltip-text">
+                        Click to send your message!
+                    </span>
+
+                </div>
 
             </form>
 
@@ -185,22 +415,32 @@
     </main>
 
 
+    <!-- ==========================================
+         Footer
+         ========================================== -->
+
     <footer>
-        <p>&copy; 2026 Megan Miller. All rights reserved.</p>
+
+        <p>
+            &copy; 2026 Megan Miller. All rights reserved.
+        </p>
+
     </footer>
 
 
-    <!-- JavaScript -->
+    <!-- ==========================================
+         JavaScript
+         ========================================== -->
+
     <script>
 
         // ==========================================
-        // 1. Dynamically add a new skill
+        // 1. Dynamically add skills
         // ==========================================
 
-        // Select the skills list
-        const skillsList = document.getElementById("skills-list");
+        const skillsList =
+            document.getElementById("skills-list");
 
-        // Skills to add dynamically
         const skills = [
             "HTML",
             "CSS",
@@ -208,10 +448,10 @@
             "Web Development"
         ];
 
-        // Add each skill to the list
         skills.forEach(function(skill) {
 
-            const skillItem = document.createElement("li");
+            const skillItem =
+                document.createElement("li");
 
             skillItem.textContent = skill;
 
@@ -221,106 +461,230 @@
 
 
         // ==========================================
-        // 2. Dynamically add a new project message
+        // 2. Dynamically add a project message
         // ==========================================
 
-        // Select the Projects section
-        const projectsSection = document.getElementById("projects");
+        const projectsSection =
+            document.getElementById("projects");
 
-        // Create a new paragraph
-        const newProjectMessage = document.createElement("p");
+        const newProjectMessage =
+            document.createElement("p");
 
-        // Add text to the paragraph
         newProjectMessage.textContent =
             "I am continuing to build my web development skills by creating projects with HTML, CSS, and JavaScript.";
 
-        // Give the paragraph a class
-        newProjectMessage.classList.add("dynamic-message");
+        newProjectMessage.classList.add(
+            "dynamic-message"
+        );
 
-        // Add the paragraph to the Projects section
-        projectsSection.appendChild(newProjectMessage);
+        projectsSection.appendChild(
+            newProjectMessage
+        );
 
 
         // ==========================================
         // 3. Reference and modify existing elements
         // ==========================================
 
-        // Select the About Me heading using querySelector()
-        const aboutHeading = document.querySelector("#about h2");
+        const aboutHeading =
+            document.querySelector("#about h2");
 
-        // Change the heading text
-        aboutHeading.textContent = "About Megan";
+        aboutHeading.textContent =
+            "About Megan";
 
-        // Change the heading color
-        aboutHeading.style.color = "#4a6fa5";
+        aboutHeading.style.color =
+            "#4a6fa5";
 
 
-        // Select the Featured Content section using getElementById()
         const featuredSection =
             document.getElementById("featured-content");
 
-        // Add a border to the section
-        featuredSection.style.border = "2px solid #4a6fa5";
+        featuredSection.style.border =
+            "2px solid #4a6fa5";
 
 
         // ==========================================
-        // 4. Timed confirmation for form submission
+        // 4. Welcome Modal
         // ==========================================
 
-        // Select the contact form
-        const contactForm = document.getElementById("contact-form");
+        const welcomeModal =
+            document.getElementById("welcome-modal");
 
-        // Listen for form submission
-        contactForm.addEventListener("submit", function(event) {
+        const closeModal =
+            document.getElementById("close-modal");
 
-            // Prevent the default form submission
-            event.preventDefault();
 
-            // Check if an old status message already exists
-            const oldStatus =
-                document.getElementById("form-status");
+        // Close the modal when the Close button is clicked
 
-            if (oldStatus) {
-                oldStatus.remove();
+        closeModal.addEventListener(
+            "click",
+            function() {
+
+                welcomeModal.style.display =
+                    "none";
+
             }
-
-            // Create a loading message
-            const loadingMessage =
-                document.createElement("p");
-
-            // Give the message an ID
-            loadingMessage.id = "form-status";
-
-            // Display the loading text
-            loadingMessage.textContent =
-                "Sending message...";
-
-            // Style the loading message
-            loadingMessage.style.color = "#4a6fa5";
-            loadingMessage.style.fontWeight = "bold";
-
-            // Add the message to the form
-            contactForm.appendChild(loadingMessage);
+        );
 
 
-            // Wait 3 seconds
-            setTimeout(function() {
+        // ==========================================
+        // 5. Persistent Dark Mode
+        // ==========================================
 
-                // Replace loading message with confirmation
+        const darkModeToggle =
+            document.getElementById("dark-mode-toggle");
+
+
+        // Check localStorage for a saved preference
+
+        const savedDarkMode =
+            localStorage.getItem("darkMode");
+
+
+        // Apply saved Dark Mode preference
+
+        if (savedDarkMode === "enabled") {
+
+            document.body.classList.add(
+                "dark-mode"
+            );
+
+            darkModeToggle.checked = true;
+
+        } else {
+
+            document.body.classList.remove(
+                "dark-mode"
+            );
+
+            darkModeToggle.checked = false;
+
+        }
+
+
+        // Save Dark Mode preference when the
+        // user changes the checkbox
+
+        darkModeToggle.addEventListener(
+            "change",
+            function() {
+
+                if (darkModeToggle.checked) {
+
+                    document.body.classList.add(
+                        "dark-mode"
+                    );
+
+                    localStorage.setItem(
+                        "darkMode",
+                        "enabled"
+                    );
+
+                } else {
+
+                    document.body.classList.remove(
+                        "dark-mode"
+                    );
+
+                    localStorage.setItem(
+                        "darkMode",
+                        "disabled"
+                    );
+
+                }
+
+            }
+        );
+
+
+        // ==========================================
+        // 6. Timed confirmation for form submission
+        // ==========================================
+
+        const contactForm =
+            document.getElementById("contact-form");
+
+
+        contactForm.addEventListener(
+            "submit",
+            function(event) {
+
+                // Prevent the default form submission
+
+                event.preventDefault();
+
+
+                // Check if an old status message exists
+
+                const oldStatus =
+                    document.getElementById(
+                        "form-status"
+                    );
+
+
+                if (oldStatus) {
+
+                    oldStatus.remove();
+
+                }
+
+
+                // Create a loading message
+
+                const loadingMessage =
+                    document.createElement("p");
+
+
+                loadingMessage.id =
+                    "form-status";
+
+
                 loadingMessage.textContent =
-                    "Message sent successfully!";
+                    "Sending message...";
 
-                // Change the confirmation color
-                loadingMessage.style.color = "green";
 
-                // Clear the form
-                contactForm.reset();
+                loadingMessage.style.color =
+                    "#4a6fa5";
 
-            }, 3000);
 
-        });
+                loadingMessage.style.fontWeight =
+                    "bold";
+
+
+                contactForm.appendChild(
+                    loadingMessage
+                );
+
+
+                // Wait 3 seconds
+
+                setTimeout(
+                    function() {
+
+                        // Replace loading message
+                        // with confirmation
+
+                        loadingMessage.textContent =
+                            "Message sent successfully!";
+
+
+                        loadingMessage.style.color =
+                            "green";
+
+
+                        // Clear the form
+
+                        contactForm.reset();
+
+                    },
+                    3000
+                );
+
+            }
+        );
 
     </script>
 
 </body>
 </html>
+
