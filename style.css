@@ -232,7 +232,15 @@ h2 {
     resize: vertical;
 }
 
-#submit-button {
+
+/* =========================
+   Submit Button
+   ========================= */
+
+/* The button does not have an ID,
+   so target the submit button by its type. */
+
+#contact-form button[type="submit"] {
     margin-top: 20px;
     padding: 12px 20px;
 
@@ -248,7 +256,144 @@ h2 {
     cursor: pointer;
 }
 
-#submit-button:hover {
+#contact-form button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+
+/* =========================
+   Submit Button Tooltip
+   ========================= */
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+
+    /* Keeps the tooltip positioned correctly */
+    align-self: flex-start;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background-color: #333333;
+    color: white;
+
+    padding: 8px 12px;
+    border-radius: 5px;
+
+    font-size: 14px;
+    white-space: nowrap;
+
+    z-index: 100;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+/* Show tooltip when user hovers over
+   the Submit button/container */
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Small arrow under the tooltip */
+
+.tooltip-text::after {
+    content: "";
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+
+    margin-left: -5px;
+
+    border-width: 5px;
+    border-style: solid;
+
+    border-color:
+        #333333
+        transparent
+        transparent
+        transparent;
+}
+
+
+/* =========================
+   Welcome Modal
+   ========================= */
+
+.modal {
+    display: flex;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 400px;
+
+    padding: 30px;
+
+    background-color: white;
+    color: #222222;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+
+    background-color: #3498db;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.modal-content button:hover {
     background-color: #2980b9;
 }
 
@@ -300,6 +445,10 @@ body.dark-mode .resource-box {
     border-color: #66b3ff;
 }
 
+body.dark-mode .resource-box h3 {
+    color: #ffffff;
+}
+
 body.dark-mode .resource-box a {
     color: #66b3ff;
 }
@@ -309,6 +458,10 @@ body.dark-mode .project {
     border-left-color: #66b3ff;
 }
 
+body.dark-mode .project h3 {
+    color: #ffffff;
+}
+
 body.dark-mode #contact-form input,
 body.dark-mode #contact-form textarea {
     background-color: #333333;
@@ -316,8 +469,53 @@ body.dark-mode #contact-form textarea {
     border-color: #555555;
 }
 
+body.dark-mode #contact-form button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+}
+
+body.dark-mode #contact-form button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
 body.dark-mode footer {
     background-color: #000000;
+}
+
+
+/* =========================
+   Dark Mode Modal
+   ========================= */
+
+body.dark-mode .modal-content {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+body.dark-mode .modal-content h2 {
+    color: #66b3ff;
+}
+
+body.dark-mode .modal-content button {
+    background-color: #3498db;
+}
+
+
+/* =========================
+   Dark Mode Tooltip
+   ========================= */
+
+body.dark-mode .tooltip-text {
+    background-color: #ffffff;
+    color: #222222;
+}
+
+body.dark-mode .tooltip-text::after {
+    border-color:
+        #ffffff
+        transparent
+        transparent
+        transparent;
 }
 
 
@@ -343,5 +541,9 @@ body.dark-mode footer {
     .project-images img {
         width: 100%;
         height: auto;
+    }
+
+    .tooltip-text {
+        font-size: 12px;
     }
 }
